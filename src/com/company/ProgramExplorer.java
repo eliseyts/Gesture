@@ -7,6 +7,7 @@ import java.awt.event.*;
 public class ProgramExplorer extends JFrame {
 
     static int modeIndex = 0;
+    static int dactGestureIndex = 0;
     public MenuMode menuMode = new MenuMode();
     public LearnMode learnMode = new LearnMode();
     public PracticeMode practiceMode = new PracticeMode();
@@ -15,7 +16,7 @@ public class ProgramExplorer extends JFrame {
 
     public ProgramExplorer() {
         super("Gesture");
-        setBounds(200, 100, 1200, 800);
+        setBounds(200, 50, 1200, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -66,6 +67,23 @@ public class ProgramExplorer extends JFrame {
                 System.out.println("click "+modeIndex);
             }
 
+            //Обработка нажатий мыши по кнопкам вперед/назад в меню обучения Дактилю
+            if (modeIndex==11){
+                if((X>650&Y>500)&&(X<750&&Y<600)) {
+                    if (dactGestureIndex<31) {
+                        dactGestureIndex++;
+                    } else dactGestureIndex=0;
+                    System.out.println("click " + dactGestureIndex);
+                }
+                if((X>450&Y>500)&&(X<550&&Y<600)) {
+                    if (dactGestureIndex>0) {
+                        dactGestureIndex--;
+                    } else dactGestureIndex=31;
+                    System.out.println("click " + dactGestureIndex);
+                }
+
+
+            }
 
             //Обработка нажатий мыши по кнопкам в меню обучения
             if ((modeIndex==1)&&((X>350&&Y>450)&&(X<850&&Y<500))){

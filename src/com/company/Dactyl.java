@@ -7,14 +7,35 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Dactyl extends JComponent {
-
-    private BufferedImage forwardButton = null;
-    private BufferedImage backwardButton = null;
-    private BufferedImage backButton = null;
-    private BufferedImage alphabetButton = null;
-    private BufferedImage alphabet = null;
-    private BufferedImage dactylGestures[] = new BufferedImage[32]; // 32 символа без ё
+    public class Dactyl extends JComponent {
+        private BufferedImage forwardButton = null;
+        private BufferedImage backwardButton = null;
+        private BufferedImage backButton = null;
+        private BufferedImage alphabetButton = null;
+        private BufferedImage alphabet = null;
+        private BufferedImage dactylGestures = null;
+        private char[] lettersArray = {'А','Б','В','Г','Д','Е','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
+        private Color newColor = new Color(255, 255, 255);
+        private String[] descriptionOfGestures = {
+                "Пальцы руки согнуты, большой палец прижат к верхней части кисти",
+                "Кисть руки поднята, указательный палец также поднят,",
+                "Кисть руки поднята, пальцы рук постепенно раскрываются",
+                "Кисть руки опущена, указательный и большой палец выпрямлены,",
+                "Кисть руки поднята, указательный и средний пальцы подняты и соприкасаются,",
+                "Кисть руки поднята, указательный палец также поднят, остальные пальцы  сгибаются и соприкасаются",
+                "Кисть руки поднята, указательный палец также поднят, остальные пальцы  сгибаются и соприкасаются"
+        };
+        private String[] descriptionOfGestures2 = {
+                " ",
+                "остальные пальцы  сгибаются и соприкасаются",
+                " ",
+                "остальные пальцы прижимаются к ладони",
+                "рукой описываются круговые движения в воздухе",
+                "Кисть руки поднята, указательный палец также поднят, остальные пальцы  сгибаются и соприкасаются",
+                "Кисть руки поднята, указательный палец также поднят, остальные пальцы  сгибаются и соприкасаются"
+        };
+        Font letterFont = new Font("Arial Black", 0, 150);
+        Font textFont = new Font("Arial Black", 0, 14);
 
 
     Dactyl(){
@@ -25,9 +46,6 @@ public class Dactyl extends JComponent {
     public void setImages(){
         try
         {
-            for (int i = 0; i < 32; i++) {
-               dactylGestures[i]= ImageIO.read(new File("images/gestures/"+i+".png"));
-            }
             forwardButton = ImageIO.read(new File("images/forward.png"));
             backwardButton = ImageIO.read(new File("images/backward.png"));
             backButton = ImageIO.read(new File("images/BackButton.png"));
@@ -36,9 +54,30 @@ public class Dactyl extends JComponent {
         } catch (IOException e){e.printStackTrace();}
     }
 
+    public void drawText(Graphics g){
+        g.setFont(letterFont);
+        g.setColor(newColor);
+        g.drawString(""+lettersArray[ProgramExplorer.dactGestureIndex], 550, 200);
+        g.setFont(textFont);
+
+        g.drawString(""+descriptionOfGestures[ProgramExplorer.dactGestureIndex], 435, 275);
+        g.drawString(""+descriptionOfGestures2[ProgramExplorer.dactGestureIndex], 435, 300);
+        g.drawString("Большинство букв изображаются только конфигурацией пальцев (без движения руки):", 435, 350);
+        g.drawString("А, Б, В, Г, Е, Ж, И, К, Л, М, Н, О, П, Р, С, Т, У, Ф, X, Ч, Ш, Ы, Э, Ю, Я.", 435, 375);
+        g.drawString("Другие буквы — сочетанием конфигурации и движением руки: Д, Е, 3, Й, Ц, Щ, Ъ, Б.", 435, 400);
+    }
+
+    //Подключение изображения жеста
+    public void setDactyl(){
+        try
+        {
+            dactylGestures= ImageIO.read(new File("images/gestures/"+ProgramExplorer.dactGestureIndex+".png"));
+        } catch (IOException e){e.printStackTrace();}
+    }
+
     //Отрисовка изображений
     public void drawImages(Graphics g){
-        g.drawImage(dactylGestures[0],150, 100,300,400,null);
+        g.drawImage(dactylGestures, 125, 115,300,400,null);
         g.drawImage(alphabetButton,1000, 100,100,100,null);
         g.drawImage(backButton,500, 700,200,50,null);
         g.drawImage(forwardButton,650, 500,100,100,null);
@@ -53,6 +92,8 @@ public class Dactyl extends JComponent {
 
     public void paint(Graphics g){
         setImages();
+        setDactyl();
+        drawText(g);
         drawImages(g);
     }
 }

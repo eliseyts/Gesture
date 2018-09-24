@@ -19,7 +19,7 @@ public class Gestures {
         } catch (IOException e){e.printStackTrace();}
     }
 
-    
+
     //Отрисовка изображений
     public void drawImages(Graphics g){
         g.drawImage(backButton,500, 700,200,50,null);
