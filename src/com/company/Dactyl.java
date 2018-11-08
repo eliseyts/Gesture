@@ -14,7 +14,8 @@ import java.io.IOException;
         private BufferedImage alphabetButton = null;
         private BufferedImage alphabet = null;
         private BufferedImage dactylGestures = null;
-        private char[] lettersArray = {'А','Б','В','Г','Д','Е','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
+        private char[] lettersArray = {'А','Б','В','Г','Д','Е','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У',
+                'Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
         private Color newColor = new Color(255, 255, 255);
         private String[] descriptionOfGestures = {
                 "Пальцы руки согнуты, большой палец прижат к верхней части кисти",

@@ -47,9 +47,23 @@ public class ProgramExplorer extends JFrame {
                 System.out.println("click "+modeIndex);
             }
 
+            //Обработка нажатий мыши по кнопкам в меню
+            if ((modeIndex==0)&&((X>475&&Y>300)&&(X<725&&Y<550))){
+                modeIndex=2;
+                System.out.println("click "+modeIndex);
+            }
+
+            //Обработка нажатий мыши по кнопкам в меню
+            if ((modeIndex==0)&&((X>800&&Y>300)&&(X<1100&&Y<550))){
+                modeIndex=3;
+                System.out.println("click "+modeIndex);
+            }
+
+
+
             //Обработка нажатий мыши по кнопке НАЗАД
             if ((modeIndex!=0)&&((X>500&&Y>700)&&(X<700&&Y<750))){
-                if(modeIndex==1) modeIndex=0;
+                if((modeIndex==1)||(modeIndex==2)||(modeIndex==3)) modeIndex=0;
                 if((modeIndex==11)||(modeIndex==12)) modeIndex=1;
                 if(modeIndex==111) modeIndex=11;
                 System.out.println("click "+modeIndex);

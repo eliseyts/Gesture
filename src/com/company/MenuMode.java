@@ -12,6 +12,7 @@ public class MenuMode extends JComponent {
     public LearnMode learnMode = new LearnMode();
     public Dactyl dactyl = new Dactyl();
     public Gestures gestures = new Gestures();
+    public Description description = new Description();
 
     private BufferedImage learningButton = null;
     private BufferedImage practiceButton = null;
@@ -42,7 +43,7 @@ public class MenuMode extends JComponent {
         g.drawImage(practiceButton,475, 300,250,250,null);
         g.drawImage(translateButton,800, 300,250,250,null);
         g.drawImage(logo,400, 50,400,150,null);
-        g.drawImage(info,1050, 650,75,75,null);
+        g.drawImage(info,1100, 675,75,75,null);
     }
 
     //Отрисовка текста
@@ -51,7 +52,7 @@ public class MenuMode extends JComponent {
         g.setColor(newColor);
         g.drawString("ОБУЧЕНИЕ", 170, 580);
         g.drawString("ПРАКТИКА", 505, 580);
-        g.drawString("СЛОВА", 855, 580);
+        g.drawString("ОСНОВЫ", 855, 580);
     }
 
     //Графическая функция
@@ -64,7 +65,7 @@ public class MenuMode extends JComponent {
         111 - алфавит
         12 - жесты
         2 - практика
-        3 - слова
+        3 - основы
          */
 
         if (ProgramExplorer.modeIndex==0) {
@@ -87,6 +88,14 @@ public class MenuMode extends JComponent {
 
         if (ProgramExplorer.modeIndex==12) {
             gestures.paint(g);
+        }
+
+        if (ProgramExplorer.modeIndex==2) {
+            learnMode.paint(g);
+        }
+
+        if (ProgramExplorer.modeIndex==3) {
+            description.paint(g);
         }
     }
 
