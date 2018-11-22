@@ -10,8 +10,7 @@ import java.io.IOException;
 public class Description extends JComponent {
 
 
-    private BufferedImage dactylButton = null;
-    private BufferedImage jesturesButton = null;
+    private BufferedImage information = null;
     private BufferedImage backButton = null;
 
     Description(){}
@@ -20,15 +19,14 @@ public class Description extends JComponent {
     public void setImages(){
         try
         {
-            dactylButton = ImageIO.read(new File("images/DactylButton.png"));
-            jesturesButton = ImageIO.read(new File("images/JesturesButton.png"));
+            information = ImageIO.read(new File("images/information2.png"));
             backButton = ImageIO.read(new File("images/BackButton.png"));
         } catch (IOException e){e.printStackTrace();}
     }
 
     //Отрисовка изображений
     public void drawImages(Graphics g){
-        g.drawImage(dactylButton,350, 300,500,50,null);
+        g.drawImage(information,10, 10,1200,640,null);
         g.drawImage(backButton,500, 700,200,50,null);
     }
 
