@@ -111,11 +111,11 @@ import java.io.IOException;
     public void drawText(Graphics g){
         g.setFont(letterFont);
         g.setColor(newColor);
-        g.drawString(""+lettersArray[ProgramExplorer.dactGestureIndex], 550, 200);
+        g.drawString(""+lettersArray[ProgramExplorer.dactIndex], 550, 200);
         g.setFont(textFont);
 
-        g.drawString(""+descriptionOfGestures[ProgramExplorer.dactGestureIndex], 435, 275);
-        g.drawString(""+descriptionOfGestures2[ProgramExplorer.dactGestureIndex], 435, 300);
+        g.drawString(""+descriptionOfGestures[ProgramExplorer.dactIndex], 435, 275);
+        g.drawString(""+descriptionOfGestures2[ProgramExplorer.dactIndex], 435, 300);
         g.drawString("Большинство букв изображаются только конфигурацией пальцев (без движения руки):", 435, 350);
         g.drawString("А, Б, В, Г, Е, Ж, И, К, Л, М, Н, О, П, Р, С, Т, У, Ф, X, Ч, Ш, Ы, Э, Ю, Я.", 435, 375);
         g.drawString("Другие буквы — сочетанием конфигурации и движением руки: Д, Е, 3, Й, Ц, Щ, Ъ, Б.", 435, 400);
@@ -125,7 +125,7 @@ import java.io.IOException;
     public void setDactyl(){
         try
         {
-            dactylGestures= ImageIO.read(new File("images/gestures/"+ProgramExplorer.dactGestureIndex+".png"));
+            dactylGestures= ImageIO.read(new File("images/gestures/"+ProgramExplorer.dactIndex +".png"));
         } catch (IOException e){e.printStackTrace();}
     }
 

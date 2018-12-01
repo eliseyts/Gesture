@@ -7,7 +7,8 @@ import java.awt.event.*;
 public class ProgramExplorer extends JFrame {
 
     static int modeIndex = 0;
-    static int dactGestureIndex = 0;
+    static int dactIndex = 0;
+    static int gestureIndex = 1;
     public MenuMode menuMode = new MenuMode();
     public LearnMode learnMode = new LearnMode();
     public PracticeMode practiceMode = new PracticeMode();
@@ -84,16 +85,16 @@ public class ProgramExplorer extends JFrame {
             //Обработка нажатий мыши по кнопкам вперед/назад в меню обучения Дактилю
             if (modeIndex==11){
                 if((X>650&Y>500)&&(X<750&&Y<600)) {
-                    if (dactGestureIndex<31) {
-                        dactGestureIndex++;
-                    } else dactGestureIndex=0;
-                    System.out.println("click " + dactGestureIndex);
+                    if (dactIndex <31) {
+                        dactIndex++;
+                    } else dactIndex =0;
+                    System.out.println("click " + dactIndex);
                 }
                 if((X>450&Y>500)&&(X<550&&Y<600)) {
-                    if (dactGestureIndex>0) {
-                        dactGestureIndex--;
-                    } else dactGestureIndex=31;
-                    System.out.println("click " + dactGestureIndex);
+                    if (dactIndex >0) {
+                        dactIndex--;
+                    } else dactIndex =31;
+                    System.out.println("click " + dactIndex);
                 }
 
 
@@ -103,6 +104,25 @@ public class ProgramExplorer extends JFrame {
             if ((modeIndex==1)&&((X>350&&Y>450)&&(X<850&&Y<500))){
                 modeIndex=12;
                 System.out.println("click "+modeIndex);
+            }
+
+            //Обработка нажатий мыши по кнопкам вперед/назад в меню обучения Жестам
+            if (modeIndex==12){
+                System.out.println("1click " + gestureIndex);
+                if((X>650&Y>500)&&(X<750&&Y<600)) {
+                    if (gestureIndex <208) {
+                        gestureIndex++;
+                    } else gestureIndex =1;
+                    System.out.println("click " + gestureIndex);
+                }
+                if((X>450&Y>500)&&(X<550&&Y<600)) {
+                    if (gestureIndex >1) {
+                        gestureIndex--;
+                    } else gestureIndex =208;
+                    System.out.println("click " + gestureIndex);
+                }
+
+
             }
 
             repaint();
