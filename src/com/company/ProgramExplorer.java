@@ -8,6 +8,7 @@ public class ProgramExplorer extends JFrame {
 
     static int modeIndex = 0;
     static int dactIndex = 0;
+    static int testIndex = 0; //счетчик выполненных вопросов в тесте
     static int gestureIndex = 1;
     public MenuMode menuMode = new MenuMode();
     public LearnMode learnMode = new LearnMode();
@@ -67,6 +68,10 @@ public class ProgramExplorer extends JFrame {
                 if((modeIndex==1)||(modeIndex==2)||(modeIndex==3)) modeIndex=0;
                 if((modeIndex==11)||(modeIndex==12)) modeIndex=1;
                 if(modeIndex==111) modeIndex=11;
+                if(modeIndex==21) {
+                    modeIndex=2;
+                    testIndex = 0;
+                }
                 System.out.println("click "+modeIndex);
             }
 
@@ -121,8 +126,30 @@ public class ProgramExplorer extends JFrame {
                     } else gestureIndex =208;
                     System.out.println("click " + gestureIndex);
                 }
+            }
 
+            //Обработка нажатий мыши по кнопкам в режиме практики
+            if ((modeIndex==2)&&((X>350&&Y>350)&&(X<850&&Y<400))){
+                modeIndex=21;
+                testIndex = 0;
+                System.out.println("click "+modeIndex);
+            }
 
+            //Обработка нажатий мыши по кнопкам в режиме тестрирования
+            //Проверяется, какой вариант ответа был выбран, затем счетчик вопросов инкрементируется
+            if (modeIndex==21) {
+                if((X>300&&Y>100)&&(X<400&&Y<200)) {
+                    testIndex++;
+                }
+                if((X>500&&Y>100)&&(X<600&&Y<200)) {
+                    testIndex++;
+                }
+                if((X>700&&Y>100)&&(X<800&&Y<200)) {
+                    testIndex++;
+                }
+                if((X>900&&Y>100)&&(X<1000&&Y<200)) {
+                    testIndex++;
+                }
             }
 
             repaint();

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Gesture:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Gesture_jar</output-path>
+    <root id="archive" name="Gesture.jar">
+      <element id="module-output" name="Gesture" />
+    </root>
+  </artifact>
+</component>

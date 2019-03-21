@@ -10,6 +10,8 @@ import java.io.IOException;
 public class MenuMode extends JComponent {
 
     public LearnMode learnMode = new LearnMode();
+    public PracticeMode practiceMode = new PracticeMode();
+    public Testing testing = new Testing();
     public Dactyl dactyl = new Dactyl();
     public Gestures gestures = new Gestures();
     public Description description = new Description();
@@ -91,7 +93,11 @@ public class MenuMode extends JComponent {
         }
 
         if (ProgramExplorer.modeIndex==2) {
-            learnMode.paint(g);
+            practiceMode.paint(g);
+        }
+
+        if (ProgramExplorer.modeIndex==21) {
+            testing.paint(g);
         }
 
         if (ProgramExplorer.modeIndex==3) {

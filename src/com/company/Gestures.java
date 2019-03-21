@@ -8,8 +8,6 @@ import java.io.IOException;
 
 public class Gestures {
     private BufferedImage backButton = null;
-    private char[] wordArray = {'А','Б','В','Г','Д','Е','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У',
-            'Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
     private Color newColor = new Color(255, 255, 255);
     Font wordFont = new Font("Arial Black", 0, 150);
     Font textFont = new Font("Arial Black", 0, 14);
