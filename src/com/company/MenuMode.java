@@ -15,6 +15,7 @@ public class MenuMode extends JComponent {
     public Dactyl dactyl = new Dactyl();
     public Gestures gestures = new Gestures();
     public Description description = new Description();
+    public Result result = new Result();
 
     private BufferedImage learningButton = null;
     private BufferedImage practiceButton = null;
@@ -98,6 +99,10 @@ public class MenuMode extends JComponent {
 
         if (ProgramExplorer.modeIndex==21) {
             testing.paint(g);
+        }
+
+        if (ProgramExplorer.modeIndex==210) {
+            result.paint(g);
         }
 
         if (ProgramExplorer.modeIndex==3) {
