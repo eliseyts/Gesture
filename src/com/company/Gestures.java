@@ -26,7 +26,7 @@ public class Gestures {
             forwardButton = ImageIO.read(new File("images/forward.png"));
             backwardButton = ImageIO.read(new File("images/backward.png"));
             backButton = ImageIO.read(new File("images/BackButton.png"));
-            whiteBackground = ImageIO.read(new File("images/whiteBackground.png"));
+            //whiteBackground = ImageIO.read(new File("images/whiteBackground.png"));
         } catch (IOException e){e.printStackTrace();}
     }
 
@@ -47,7 +47,7 @@ public class Gestures {
 
     //Отрисовка изображений
     public void drawImages(Graphics g){
-        g.drawImage(whiteBackground, 200, 50,800, 400,null);
+        //g.drawImage(whiteBackground, 200, 50,800, 400,null);
         g.drawImage(dactylGestures, 450, 75, 300, 350,null);
         g.drawImage(backButton,500, 700,200,50,null);
         g.drawImage(forwardButton,650, 500,100,100,null);
@@ -55,6 +55,8 @@ public class Gestures {
     }
 
     public void paint(Graphics g){
+        g.setColor(newColor);
+        g.fillRect(0,0,1200, 800);
         setImages();
         setGesture();
         drawText(g);

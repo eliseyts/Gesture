@@ -13,12 +13,13 @@ public class ProgramExplorer extends JFrame {
     static int gestureIndex = 1;
     static int correctCounter = 0; //счетчик правильно выполненных тестов. Значение -1 используется для коррекции разницы в единицу
 
+
     public MenuMode menuMode = new MenuMode();
     public LearnMode learnMode = new LearnMode();
     public PracticeMode practiceMode = new PracticeMode();
     public Testing test = new Testing();
     public JPanel mainPanel;
-    private static Color backgroundColor = new Color(72, 89, 186);
+    static Color backgroundColor = new Color(72,89,186);
 
     public ProgramExplorer() {
         super("Gesture");
